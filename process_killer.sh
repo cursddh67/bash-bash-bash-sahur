@@ -2,21 +2,6 @@
 # oh by the way, it needs 777 permissions or idk
 # also, ngl, this is completely useless since you can do it in like 2 lines (ps aux | grep "thing" it gives you his pid and then kaboom kill -9 id)
 
-
-search() {
-    local pn="$1"
-    local res
-
-    res=$(ps aux | grep "[${pn:0:1}]${pn:1}")
-
-    if [ -n "$res" ]; then
-        echo "found matches:"
-        echo "$res"
-    else
-        echo "not found, rip"
-    fi
-}
-
 while true; do
     clear
     echo "welcome!!!1!1!!!"
@@ -27,7 +12,8 @@ while true; do
         1) 
             clear
             read -rp "process name: " pn
-            search "$pn"
+            res=$(pgrep -o "$pn")
+            echo "$res"
             
             echo "1. kill it"
             echo "2. just press enter to get back in menu"
@@ -36,8 +22,8 @@ while true; do
 
             case "$rpt" in
                 1)
-                    read -rp "please insert PID: " pid
-                    kill -9 "$pid"
+                    kill -9 "$res"
+                
                     echo "done"
                     read -rp "press enter to continue " inp2
                     ;;
