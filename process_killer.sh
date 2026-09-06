@@ -1,4 +1,5 @@
 #!/bin/bash
+# oh by the way, it needs 777 permissions or idk
 
 search() {
     local pn="$1"
