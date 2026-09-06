@@ -7,6 +7,8 @@ while true; do
     echo "welcome!!!1!1!!!"
     echo "1 search for a process"
     echo "2 getout"
+    echo "3 directly kill a process"
+    echo "4 look all of them"
     read -rp "> " ans
     case "$ans" in
         1) 
@@ -38,6 +40,21 @@ while true; do
             echo "alr.."
             exit 0
             ;;
+        
+        3)
+            clear
+            read -rp "insert PID: " pipid
+            kill -9 "$pipid"
+            echo "done"
+            read -rp "press enter to continue " totallynotneededvariablethatisherefornoreasonxd
+            ;;
+        
+        4)
+            clear
+            ps aux
+            read -rp "done, press enter to continue" yumersdada
+            ;;
+        
         *)
             clear
             echo "uh"
