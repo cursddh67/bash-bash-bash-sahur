@@ -1,5 +1,7 @@
 #!/bin/bash
 # oh by the way, it needs 777 permissions or idk
+# also, ngl, this is completely useless since you can do it in like 2 lines (ps aux | grep "thing" it gives you his pid and then kaboom kill -9 id)
+
 
 search() {
     local pn="$1"
